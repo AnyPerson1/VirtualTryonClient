@@ -1,0 +1,38 @@
+{
+    "short_name": "Virtual Tryon Plus",
+    "name": "Specially Developed Virtual Tryon Plus",
+    "icons": [
+      {
+        "src": "/icons/icon1_pwa.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "/icons/icon1square_pwa.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/screenshots/ss_pc.png",
+        "sizes": "1920x966",
+        "type": "image/png",
+        "form_factor": "wide",
+        "label": "App preview on desktop"
+      },
+      {
+        "src": "/screenshots/ss_mobile.png",
+        "sizes": "403x758",
+        "type": "image/png",
+        "form_factor": "narrow",
+        "label": "App preview on mobile"
+      }
+    ],
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#000000"
+  }

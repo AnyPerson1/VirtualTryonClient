@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özür Dileriz</title>
+    <link rel="stylesheet" href="sorryPage.css">
+    <link rel="stylesheet" href="../palette.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="manifest" href="../../manifest.json" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const retryButton = document.getElementById('retry-button');
+            retryButton.addEventListener('click', function() {
+                location.reload();
+            });
+        });
+    </script>
+    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://example.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://example.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://example.com/favicon-16x16.png">
+
+</head>
+<body class="bg-color-1">
+    <div id="sorry-container">
+        <header id="sorry-header">
+            <h1 class="text-color-4" id="header">İnternet Bağlantısı Yok</h1>
+        </header>
+        <div id="sorry-message">
+            <p class="text-color-4 description">İnternet bağlantınızı kontrol edin ve tekrar deneyin.</p>
+            <p class="text-color-4 description">Diğer sorunlar için destek hattına ulaşınız:</p>
+            <a href="tel:+905551018764" class="text-color-2 description">+90 555 101 87 64</a>
+        </div>
+        <button id="retry-button" class="bg-color-3">Tekrar Dene</button>
+        <p class="text-color-2 reason" onclick="reasonPopUp()">Neden internet olmadan uygulamaya giremiyorum ?</p>
+        <div class="reasonPopUp">
+            <p class="text-color-4 ">Uygulama, sunduğumuz yapay zeka ile haberleşmek için internet bağlantısına ihtiyaç duyar.</p>
+            <p class="text-color-4 ">Ayrıca, kredilerinizi hep güncel tutmak için de internet bağlantısı gereklidir.</p>
+            <p class="text-color-4">Bu nedenle, internet bağlantısı olmadan uygulama çalışamaz.</p>
+            <button id="retry-button" class="bg-color-3" onclick="closeReasonPopUp()">Kapat</button>
+        </div>
+    </div>
+    <script src="sorryPage.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("../../service-worker.js")
+            .then(() => console.log("Service worker registered"))
+            .catch(err => console.error("SW Error:", err));
+        }
+      </script>
+</body>
+</html>

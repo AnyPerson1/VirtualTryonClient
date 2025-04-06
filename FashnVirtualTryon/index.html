@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design/login/login.css">
+    <title>Giriş Yap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="manifest" href="manifest.json" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="login-container">
+        <header id="header">
+            <h1>Giriş Yap</h1>
+        </header>
+        <form action="#" id="login-form">
+            <div class="input-container">
+                <label for="tel" class="input-container-label">Telefon Numarasıa</label>
+                <input type="tel" id="tel" name="tel" required placeholder="örn. '05551018764'" pattern="0[5][0-9]{9}" title="Lütfen geçerli bir telefon numarası girin.">
+            </div>
+            <div class="input-container">
+                <label for="password" class="input-container-label">Şifre</label>
+                <input type="password" id="password" name="password" required placeholder="Şifrenizi girin">
+            </div>
+            <button type="submit" id="submitButton">Giriş Yap</button>
+        </form>
+    </div>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("service-worker.js")
+            .then(() => console.log("Service worker registered"))
+            .catch(err => console.error("SW Error:", err));
+        }
+      </script>
+    </body>
+</html>

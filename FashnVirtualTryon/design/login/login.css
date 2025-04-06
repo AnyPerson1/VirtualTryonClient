@@ -1,0 +1,166 @@
+/* --- Temel Ayarlar ve Renkler --- */
+:root {
+    --bg-color: #F2EFE7;
+    --container-bg: #ffffff; /* Konteyner için beyaz arka plan daha ferah olabilir */
+    --accent-light: #9ACBD0;
+    --accent-medium: #48A6A7;
+    --accent-dark: #006A71;
+    --text-color: #333; /* Ana metin rengi */
+    --input-border: #ccc;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh; /* Tam ekran yüksekliği */
+    font-family: 'Poppins', Arial, sans-serif; /* Daha modern bir font */
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* Temel font boyutu */
+    line-height: 1.5;
+    color: var(--text-color);
+    overflow-x: hidden; /* Yatay kaydırmayı engelle */
+}
+
+/* --- Giriş Konteyneri --- */
+#login-container {
+    background-color: var(--container-bg);
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    margin: 2rem 0;
+}
+
+/* --- Giriş Animasyonu --- */
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Başlık --- */
+#header h1 {
+    color: var(--accent-dark);
+    margin-bottom: 2rem; 
+    font-weight: 600; 
+}
+
+/* --- Form ve Input Alanları --- */
+#login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-container {
+    width: 100%;
+    text-align: left;
+    position: relative;
+}
+
+.input-container-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    color: var(--accent-dark);
+    font-size: 0.9rem;
+}
+
+input[type="tel"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Input Odaklanma Animasyonu */
+input[type="tel"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--accent-medium);
+    box-shadow: 0 0 0 3px rgba(72, 166, 167, 0.3);
+}
+
+
+input::placeholder {
+    color: #999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+input:focus::placeholder {
+   opacity: 0.5;
+}
+
+
+/* --- Gönder Butonu --- */
+#submitButton {
+    background-color: var(--accent-medium);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Geçiş animasyonu */
+    margin-top: 1rem;
+    width: 100%;
+}
+
+
+#submitButton:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+#submitButton:active {
+    transform: translateY(0px) scale(0.98);
+}
+
+
+/* --- Responsive Ayarlar --- */
+
+
+@media (min-width: 600px) {
+    #login-container {
+        padding: 3rem;
+    }
+    #header h1 {
+        font-size: 2.2rem;
+    }
+    .input-container-label {
+       font-size: 1rem;
+    }
+     input[type="tel"],
+     input[type="password"] {
+        padding: 1rem 1.2rem;
+    }
+    #submitButton {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+
+@media (min-width: 992px) {
+}
