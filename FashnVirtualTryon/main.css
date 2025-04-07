@@ -23,6 +23,23 @@ body{
     text-align: center;
     font-size: x-large;
 }
+#settings-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -300px; /* Start position off-screen */
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+#settings-container.active {
+    display: block;
+    left: 0;
+}
 
 /* Credits Container */
 #credits-container{
@@ -44,11 +61,11 @@ body{
 
 @media (max-width: 768px) {
     #header-settings-icon {
-        width: 8.5vw; /* Increase size for smaller screens */
+        width: 8.5vw; 
         height: 8.5vw;
     }
     #credits-container img {
-        width: 9vw; /* Increase size for smaller screens */
+        width: 9vw; 
         height: 9vw;
     }
 }
