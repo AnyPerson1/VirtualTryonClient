@@ -5,11 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Tryon</title>
     <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/FashnVirtualTryon/design/palette.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <label for="fileInput">Annen:</label>
+  <header id="header" class="bg-color-2">
+    <img src="/FashnVirtualTryon/resource/panel_icon.png" alt="" id="header-settings-icon">
+    <div id="settings-container">
+      <a href="">Hesabım</a>
+      <a href="">Kredi Satın Al</a>
+      <a href=""></a>
+      <a href=""></a>
+    </div>
+    <h1 id="header-title" class="text-color-4">Virtual Tryon</h1>
+    <div id="credits-container">
+      <img src="/FashnVirtualTryon/resource/token_icon.png" alt="">
+      <p id="credit-value" class="text-color-4">9999</p>
+    </div>
+  </header>
+    <label for="fileInput"></label>
     <input type="file" class="fileInput" accept="image/*">
-    <label for="fileInput">Annen:</label>
+    <label for="fileInput"></label>
     <input type="file" class="fileInput" accept="image/*">
     <script>
         if ("serviceWorker" in navigator) {
@@ -18,5 +37,6 @@
             .catch(err => console.error("SW Error:", err));
         }
       </script>
+    <script src="main.js"></script>
 </body>
 </html>
