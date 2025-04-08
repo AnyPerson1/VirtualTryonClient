@@ -1,4 +1,5 @@
 body {
+
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
@@ -27,6 +28,7 @@ body {
 
 #header-left {
     display: flex;
+
     align-items: center;
 }
 
@@ -39,12 +41,12 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 #header-settings-icon svg {
     fill: rgb(239, 239, 239);
     width: 100%;
     height: 100%;
 }
-
 
 #header-title {
     flex-grow: 1;
@@ -72,7 +74,6 @@ body {
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
     color: #333;
-    padding-top: 20px;
 }
 
 #settings-container.active {
@@ -91,6 +92,7 @@ body {
     border: none;
     padding: 5px;
 }
+
 #settings-close-btn:hover {
     color: #333;
 }
@@ -112,7 +114,6 @@ body {
 #settings-container a:last-child {
     border-bottom: none;
 }
-
 
 #credits-container {
     display: flex;
@@ -136,63 +137,152 @@ body {
     white-space: nowrap;
 }
 
-@media (max-width: 768px) {
-    #header {
-        padding: 0 15px;
-        min-height: 55px;
-    }
-
-    #header-settings-icon {
-        width: 30px;
-        height: 30px;
-    }
-
-    #header-title {
-        font-size: 1.3em;
-        margin: 0 10px;
-    }
-
-    #credits-container img {
-        width: 35px;
-        height: 35px;
-    }
-    #credits-container h1 {
-        font-size: 1em;
-    }
-
-    #settings-container {
-        width: 280px;
-        max-width: 80vw;
-    }
-   #settings-container a {
-        padding: 12px 18px;
-        font-size: 0.95em;
-    }
+#footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    height: 15vw;
+    width: 100%;
+    background-color: #4a4a4a;
+    color: rgb(239, 239, 239);
+    font-size: 0.9em;
+    position: fixed;
+    bottom: 0;
 }
+
+.navigationItem{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-right:1px solid;
+    border-color: #48A6A7
+}
+
+.navigationItem:last-child{
+    border-right: none;
+}
+
+#page-content {
+    flex-grow: 1; /* Header ile footer arasındaki tüm alanı kaplasın */
+    padding: 20px; /* İçerik için kenar boşlukları */
+    overflow-y: auto; /* İçerik taşarsa scroll çıksın */
+}
+
+
+/* Sayfa Bölümleri Stilleri */
+.page-section {
+    display: none; /* Başlangıçta tüm bölümler gizli */
+}
+
+.page-section.active {
+    display: block; /* Sadece aktif olan bölüm görünür */
+    animation: fadeIn 0.5s ease-in-out; /* Güzel bir geçiş efekti */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* Footer Stilleri */
+#footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 60px;
+    width: 100%;
+    font-size: 0.9em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+
+.navigationItem.active {
+
+    background-color: #006A71;
+    color: #F2EFE7 !important;
+    font-weight: bold;
+}
+
+
+
 
 @media (max-width: 480px) {
-   #header {
-        min-height: 50px;
+    #footer {
+        height: 55px; /* Mobilde biraz daha küçük */
+        font-size: 0.8em;
     }
-    #header-title {
-        font-size: 1.1em;
-    }
-
-    #credits-container h1 {
-        display: none;
-    }
-   #credits-container img {
-        width: 30px;
-        height: 30px;
-        margin-right: 0;
-    }
-
-    #settings-container {
-        width: 250px;
-        max-width: 90vw;
-    }
-   #settings-container a {
-        padding: 10px 15px;
-        font-size: 0.9em;
+    body {
+        padding-bottom: 70px; /* Mobildeki footer yüksekliğine göre ayarla */
     }
 }
+@media (max-width: 768px) {
+
+    #header {
+    
+    padding: 0 15px;
+    
+    min-height: 55px;
+    
+    }
+}
+@media (max-width: 480px) {
+
+    #header {
+    
+    min-height: 50px;
+    
+    }
+    
+    #header-title {
+    
+    font-size: 1.1em;
+    
+    }
+    
+    
+    
+    #credits-container h1 {
+    
+    display: none;
+    
+    }
+    
+    #credits-container img {
+    
+    width: 30px;
+    
+    height: 30px;
+    
+    margin-right: 0;
+    
+    }
+    
+    
+    
+    #settings-container {
+    
+    width: 250px;
+    
+    max-width: 90vw;
+    
+    }
+    
+    #settings-container a {
+    
+    padding: 10px 15px;
+    
+    font-size: 0.9em;
+    
+    }
+}
+/* ÖNEMLİ: main.css içindeki #settings-container vb. stillerin bu yeni footer ve içerik yapısıyla çakışmadığından emin ol. Gerekirse z-index değerlerini ayarla. */

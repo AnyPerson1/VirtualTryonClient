@@ -6,37 +6,58 @@
     <title>Virtual Tryon</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="/FashnVirtualTryon/design/palette.css">
+    <link rel="stylesheet" href="design/palette.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-base">
   <header id="header" class="bg-color-2">
-    <img src="/FashnVirtualTryon/resource/panel_icon.png" alt="" id="header-settings-icon" onclick="settingsPopup()">
-    <div id="settings-container" class="bg-color-3">
-      <a href="" class="text-color-4 bg-color-2">Hesabım</a>
-      <a href="" class="text-color-4 bg-color-2">Kredi Satın Al</a>
-      <a href="" class="text-color-4 bg-color-2">Destek</a>
-      <a href="" class="text-color-4 bg-color-2">Çıkış Yap</a>
-    </div>
-    <h1 id="header-title" class="text-color-4">Virtual Tryon</h1>
+    <h1 id="header-title" class="text-color-4">Anasayfa</h1>
     <div id="credits-container">
-      <img src="/FashnVirtualTryon/resource/token_icon.png" alt="">
+      <img src="token_icon.png" alt="">
       <p id="credit-value" class="text-color-4">9999</p>
     </div>
   </header>
-    <label for="fileInput"></label>
-    <input type="file" class="fileInput" accept="image/*">
-    <label for="fileInput"></label>
-    <input type="file" class="fileInput" accept="image/*">
-    <script>
-        if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("/service-worker.js")
-            .then(() => console.log("Service worker registered"))
-            .catch(err => console.error("SW Error:", err));
-        }
-      </script>
-    <script src="main.js"></script>
+
+  <main id="page-content">
+    <div id="anasayfa-section" class="page-section active">
+      <h2>Anasayfa</h2>
+      <p>Burası anasayfa içeriği.</p>
+      <label for="fileInput1">Model Resmi Yükle:</label>
+      <input type="file" id="fileInput1" class="fileInput" accept="image/*">
+      <br><br>
+      <label for="fileInput2">Kıyafet Resmi Yükle:</label>
+      <input type="file" id="fileInput2" class="fileInput" accept="image/*">
+      </div>
+
+    <div id="kredi-section" class="page-section">
+      <h2>Kredi Sayfası</h2>
+      <p>Kredi bilgileri ve satın alma seçenekleri burada yer alacak.</p>
+      </div>
+
+    <div id="hesap-section" class="page-section">
+      <h2>Hesap Sayfası</h2>
+      <p>Kullanıcı hesap detayları, ayarlar vb. burada yer alacak.</p>
+      </div>
+  </main>
+
+
+  <footer id="footer" class="bg-color-2">
+    <a href="#" id="nav-kredi" class="navigationItem text-color-4" onclick="navigate('kredi')">Kredi</a>
+    <a href="#" id="nav-anasayfa" class="navigationItem text-color-4 active" onclick="navigate('anasayfa')">Anasayfa</a>
+    <a href="#" id="nav-hesap" class="navigationItem text-color-4" onclick="navigate('hesap')">Hesap</a>
+  </footer>
+
+  <script>
+      if ("serviceWorker" in navigator) {
+        // Service worker kaydını / ile başlatmak genellikle daha güvenlidir
+        navigator.serviceWorker.register("/service-worker.js")
+          .then(() => console.log("Service worker registered"))
+          .catch(err => console.error("SW Error:", err));
+      }
+    </script>
+  <script src="main.js"></script>
+
 </body>
 </html>
