@@ -9,31 +9,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="manifest" href="manifest.json" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="login.js" defer></script>
 </head>
 <body>
     <div id="login-container">
         <header id="header">
             <h1>Giriş Yap</h1>
         </header>
-        <form action="#" id="login-form">
-            <div class="input-container">
-                <label for="tel" class="input-container-label">Telefon Numarası</label>
-                <input type="tel" id="tel" name="tel" required placeholder="örn. '05551018764'" pattern="0[5][0-9]{9}" title="Lütfen geçerli bir telefon numarası girin.">
-            </div>
-            <div class="input-container">
-                <label for="password" class="input-container-label">Şifre</label>
-                <input type="password" id="password" name="password" required placeholder="Şifrenizi girin">
-            </div>
-            <button type="submit" id="submitButton">Giriş Yap</button>
-        </form>
+
+        <div class="input-container">
+            <label for="tel" class="input-container-label">Telefon Numarası</label>
+            <input type="tel" id="tel" name="tel" required placeholder="örn. 05551234567" pattern="0[5][0-9]{9}" title="Lütfen geçerli bir TR telefon numarası girin (örn. 05xxxxxxxxx)." autocomplete="tel">
+        </div>
+        <div class="input-container">
+            <label for="password" class="input-container-label">Şifre</label>
+            <input type="password" id="password" name="password" required placeholder="Şifrenizi girin" autocomplete="current-password">
+        </div>
+        <button type="button" id="submitButton">Giriş Yap</button>
+
     </div>
 
     <script>
         if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("service-worker.js")
+          // Register service worker from root scope
+          navigator.serviceWorker.register("/service-worker.js")
             .then(() => console.log("Service worker registered"))
             .catch(err => console.error("SW Error:", err));
         }
-      </script>
-    </body>
+    </script>
+</body>
 </html>

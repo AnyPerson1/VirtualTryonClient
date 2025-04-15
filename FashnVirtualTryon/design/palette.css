@@ -1,79 +1,96 @@
-/* Renk Paleti Utility Class'ları */
-
-/* --- Renk 1: Açık Bej / Kırık Beyaz (#F2EFE7) --- */
-.text-color-1 {
-    color: #F2EFE7 !important; /* Metin Rengi */
-}
-.bg-color-1 {
-    background-color: #F2EFE7 !important; /* Arka Plan Rengi */
-}
-.border-color-1 {
-    border-color: #F2EFE7 !important; /* Kenarlık Rengi */
-}
-/* Kenarlık eklemek isterseniz: */
-.border-1 {
-    border: 1px solid #F2EFE7 !important;
-}
-
-
-/* --- Renk 2: Açık Mavi-Gri (#9ACBD0) --- */
-.text-color-2 {
-    color: #9ACBD0 !important;
-}
-.bg-color-2 {
-    background-color: #9ACBD0 !important;
-}
-.border-color-2 {
-    border-color: #9ACBD0 !important;
-}
-.border-2 {
-    border: 1px solid #9ACBD0 !important;
-}
-
-
-/* --- Renk 3: Camgöbeği / Teal (#48A6A7) --- */
-.text-color-3 {
-    color: #48A6A7 !important;
-}
-.bg-color-3 {
-    background-color: #48A6A7 !important;
-}
-.border-color-3 {
-    border-color: #48A6A7 !important;
-}
-.border-3 {
-    border: 1px solid #48A6A7 !important;
-}
-
-
-/* --- Renk 4: Koyu Camgöbeği / Mavi-Yeşil (#006A71) --- */
-.text-color-4 {
-    color: #006A71 !important;
-}
-.bg-color-4 {
-    background-color: #006A71 !important;
-}
-.border-color-4 {
-    border-color: #006A71 !important;
-}
-.border-4 {
-    border: 1px solid #006A71 !important;
-}
-
-/* --- Ekstra: Yaygın Kullanımlar İçin İsimlendirilmiş Class'lar (İsteğe Bağlı) --- */
-/* Bu kısım, renk numaralarını ezberlemek yerine daha anlamlı isimler kullanmak isterseniz faydalı olabilir. */
-
-.bg-primary { background-color: #48A6A7 !important; } /* Ana Eylem Rengi (Örn: Buton) */
-.text-primary { color: #48A6A7 !important; }
-
-.bg-secondary { background-color: #006A71 !important; } /* İkincil Eylem / Vurgu */
-.text-secondary { color: #006A71 !important; }
-
-.bg-accent { background-color: #9ACBD0 !important; } /* Vurgu / Hafif Arka Plan */
-.text-accent { color: #9ACBD0 !important; }
-
-.bg-base { background-color: #F2EFE7 !important; } /* Temel Arka Plan */
-.text-base { color: #F2EFE7 !important; } /* Genellikle koyu arka planlarda */
-
-.text-dark { color: #333 !important; } /* Koyu Metin (Palet dışı ama kullanışlı) */
-.text-light { color: #fff !important; } /* Açık Metin (Palet dışı ama kullanışlı) */
+:root {
+    /* Main theme colors */
+    --bg-base: #f8f9fa;
+    --color-1: #ffffff;
+    --color-2: #333844;
+    --color-3: #bbbbbb;
+    --color-4: #dddddd;
+    
+    /* Text colors */
+    --text-color-1: #333333;
+    --text-color-2: #666666;
+    --text-color-3: #999999;
+    --text-color-4: #ffffff;
+    
+    /* Accent colors */
+    --accent-color: #6c5ce7;
+    --accent-color-dark: #5546d3;
+    --accent-color-light: #a29bfe;
+    
+    /* Status colors */
+    --success-color: #00b894;
+    --error-color: #e74c3c;
+    --warning-color: #f39c12;
+  }
+  
+  /* Background colors */
+  .bg-base {
+    background-color: var(--bg-base);
+  }
+  
+  .bg-color-1 {
+    background-color: var(--color-1);
+  }
+  
+  .bg-color-2 {
+    background-color: var(--color-2);
+  }
+  
+  .bg-color-3 {
+    background-color: var(--color-3);
+  }
+  
+  .bg-color-4 {
+    background-color: var(--color-4);
+  }
+  
+  /* Text colors */
+  .text-color-1 {
+    color: var(--text-color-1);
+  }
+  
+  .text-color-2 {
+    color: var(--text-color-2);
+  }
+  
+  .text-color-3 {
+    color: var(--text-color-3);
+  }
+  
+  .text-color-4 {
+    color: var(--text-color-4);
+  }
+  
+  /* Accent colors */
+  .accent-color {
+    color: var(--accent-color);
+  }
+  
+  .bg-accent {
+    background-color: var(--accent-color);
+  }
+  
+  /* Status colors */
+  .success-text {
+    color: var(--success-color);
+  }
+  
+  .error-text {
+    color: var(--error-color);
+  }
+  
+  .warning-text {
+    color: var(--warning-color);
+  }
+  
+  .bg-success {
+    background-color: var(--success-color);
+  }
+  
+  .bg-error {
+    background-color: var(--error-color);
+  }
+  
+  .bg-warning {
+    background-color: var(--warning-color);
+  }

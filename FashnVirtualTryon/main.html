@@ -1,63 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Tryon</title>
+    <title>Sanal Giyim Deneme</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="design/palette.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> </head>
 <body class="bg-base">
   <header id="header" class="bg-color-2">
     <h1 id="header-title" class="text-color-4">Anasayfa</h1>
     <div id="credits-container">
-      <img src="token_icon.png" alt="">
-      <p id="credit-value" class="text-color-4">9999</p>
+      <img src="token_icon.png" alt="Token" class="token-icon"> <p id="credit-value" class="text-color-4">0</p>
     </div>
   </header>
 
   <main id="page-content">
-    <div id="anasayfa-section" class="page-section active">
-      <h2>Anasayfa</h2>
-      <p>Burası anasayfa içeriği.</p>
-      <label for="fileInput1">Model Resmi Yükle:</label>
-      <input type="file" id="fileInput1" class="fileInput" accept="image/*">
-      <br><br>
-      <label for="fileInput2">Kıyafet Resmi Yükle:</label>
-      <input type="file" id="fileInput2" class="fileInput" accept="image/*">
+    <div class="upload-container">
+      <div class="upload-box" id="model-upload-box">
+        <div class="upload-preview" id="model-preview">
+           <i class="fas fa-user upload-icon"></i>
+          <img id="model-image-preview" class="preview-image hidden" src="#" alt="Model Önizleme">
+        </div>
+        <label for="fileInput1" class="upload-label">
+          <i class="fas fa-upload"></i> Model Fotoğrafı
+        </label>
+        <input type="file" id="fileInput1" class="fileInput" accept="image/*">
       </div>
 
-    <div id="kredi-section" class="page-section">
-      <h2>Kredi Sayfası</h2>
-      <p>Kredi bilgileri ve satın alma seçenekleri burada yer alacak.</p>
+      <div class="upload-box" id="clothing-upload-box">
+        <div class="upload-preview" id="clothing-preview">
+          <i class="fas fa-tshirt upload-icon"></i>
+          <img id="clothing-image-preview" class="preview-image hidden" src="#" alt="Kıyafet Önizleme">
+        </div>
+        <label for="fileInput2" class="upload-label">
+          <i class="fas fa-upload"></i> Kıyafet Fotoğrafı
+        </label>
+        <input type="file" id="fileInput2" class="fileInput" accept="image/*">
       </div>
+    </div>
 
-    <div id="hesap-section" class="page-section">
-      <h2>Hesap Sayfası</h2>
-      <p>Kullanıcı hesap detayları, ayarlar vb. burada yer alacak.</p>
+    <div class="clothing-type-container">
+      <label for="clothing-type" class="clothing-type-label">Kıyafet Tipi Seçin:</label>
+      <select id="clothing-type" class="clothing-type-select">
+        <option value="" disabled selected>-- Seçim Yapın --</option> <option value="tops">Üst Giyim</option>
+        <option value="bottoms">Alt Giyim</option>
+        <option value="one-pieces">Tek Parça</option>
+      </select>
+    </div>
+
+    <button type="button" id="try-on-button" class="primary-button" disabled>
+      <i class="fas fa-magic"></i> Denemeyi Başlat
+    </button>
+
+    <div id="result-container" class="result-container hidden">
+       <h2>Deneme Sonucu:</h2>
+       <div id="result-image-wrapper"> <img id="result-image" src="#" alt="Sanal deneme sonucu">
+       </div>
+       <div class="result-actions">
+           <button type="button" id="save-result" class="secondary-button">
+               <i class="fas fa-save"></i> Kaydet
+           </button>
+           <button type="button" id="share-result" class="secondary-button">
+               <i class="fas fa-share-alt"></i> Paylaş
+           </button>
+       </div>
+    </div>
+
+    <div id="kredi-section" class="page-section"> <div class="section-container">
+        <h2 class="section-title">Kredi Satın Al</h2>
+
+        <div class="current-credits">
+          <h3>Mevcut Krediniz</h3>
+          <div class="credit-display">
+            <img src="token_icon.png" alt="Token" class="token-icon-large">
+            <span id="available-credits">0</span>
+          </div>
+        </div>
+
+        <div class="credit-info">
+          <h3>Kredi Fiyatı</h3>
+          <p class="credit-price">1 Kredi = 5₺</p>
+
+          <div class="payment-info">
+            <h3>Ödeme Bilgileri</h3>
+            <div class="bank-details">
+              <p><strong>IBAN:</strong> TR43 0006 7010 0000 0022 9174 17</p>
+              <p><strong>Hesap Sahibi:</strong> Arda Şimşek</p>
+            </div>
+
+            <div class="payment-instructions">
+              <h4>Ödeme Adımları:</h4>
+              <ol>
+                <li>İstediğiniz kredi miktarını belirleyin (Kredi x 5₺).</li>
+                <li>Aşağıdaki butona tıklayarak size özel ödeme kodunuzu alın.</li>
+                <li>Bu kodu banka transferinizin <strong>açıklama</strong> kısmına <strong>eksiksiz</strong> yazarak ücreti belirtilen İBAN'a gönderin.</li>
+                <li>Ödemeniz onaylandıktan sonra (genellikle kısa süre içinde) kredileriniz hesabınıza otomatik olarak eklenecektir.</li>
+              </ol>
+            </div>
+
+            <div id="payment-code-panel" class="payment-code-panel hidden">
+              <div class="payment-code-container">
+                <h4>Ödeme Kodunuz (Açıklamaya Yazılacak)</h4>
+                <div class="payment-code-display">
+                  <span id="payment-code"></span>
+                  <button type="button" id="copy-code-btn" class="copy-button" title="Kodu Kopyala">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <p class="code-info">Bu kodu EFT/havale açıklama kısmına yazınız.</p>
+              </div>
+            </div>
+
+             <button type="button" id="generate-payment-code" class="primary-button">
+              <i class="fas fa-key"></i> Ödeme Kodu Al
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div id="profil-section" class="page-section">
+         <div class="section-container">
+             <h2 class="section-title">Profilim</h2>
+             <p>Profil sayfası içeriği buraya gelecek.</p>
+             <button type="button" id="logout-button" class="danger-button">Çıkış Yap</button> </div>
+     </div>
+
+     <div id="gecmis-section" class="page-section">
+         <div class="section-container">
+             <h2 class="section-title">İşlem Geçmişim</h2>
+             <p>İşlem geçmişi içeriği buraya gelecek.</p>
+         </div>
+     </div>
+
   </main>
 
-
   <footer id="footer" class="bg-color-2">
-    <a href="#" id="nav-kredi" class="navigationItem text-color-4" onclick="navigate('kredi')">Kredi</a>
-    <a href="#" id="nav-anasayfa" class="navigationItem text-color-4 active" onclick="navigate('anasayfa')">Anasayfa</a>
-    <a href="#" id="nav-hesap" class="navigationItem text-color-4" onclick="navigate('hesap')">Hesap</a>
+    <a href="?page=kredi" id="nav-kredi" class="navigationItem text-color-4" data-section="kredi">
+      <i class="fas fa-coins"></i>
+      <span>Kredi</span>
+    </a>
+    <a href="?page=anasayfa" id="nav-anasayfa" class="navigationItem text-color-4" data-section="anasayfa"> <i class="fas fa-home"></i>
+      <span>Anasayfa</span>
+    </a>
   </footer>
 
+  <script src="main.js" defer></script>
   <script>
-      if ("serviceWorker" in navigator) {
-        // Service worker kaydını / ile başlatmak genellikle daha güvenlidir
-        navigator.serviceWorker.register("/service-worker.js")
-          .then(() => console.log("Service worker registered"))
-          .catch(err => console.error("SW Error:", err));
-      }
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("/service-worker.js") // Ensure correct path from root
+            .then(() => console.log("Service worker successfully registered"))
+            .catch(err => console.error("SW Error:", err));
+        }
     </script>
-  <script src="main.js"></script>
-
 </body>
 </html>
